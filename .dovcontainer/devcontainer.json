@@ -1,0 +1,24 @@
+{
+    "name": "n8n Development Container",
+    "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:16",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.vscode-docker",
+                "dbaeumer.vscode-eslint"
+            ]
+        }
+    },
+    "postCreateCommand": "npm install -g n8n",
+    "portsAttributes": {
+        "5678": {
+            "label": "n8n",
+            "onAutoForward": "notify"
+        }
+    },
+    "forwardPorts": [5678],
+    "remoteUser": "node"
+}
